@@ -6,20 +6,16 @@ require_once'function.php';
 include('includes/header.php');
 ?>
 
-    <div class="container">
+<div class="container">
 
-        <div class="row">
+    <div class="row">
 
-            <div class="col-md-8">
-                <div class="panel panel-default">
+        <div class="col-md-8">
+            <div class="panel panel-default">
 
-                    <div class="panel-body">
-                        <!--this panel gives me the boarder i have in my left div-->
-
-                        <h3>Summary of Exam</h3>
-
-
-                        <?php
+                <div class="panel-body">
+                
+                    <?php
     if(isset($_POST['search_btn'])){
        $login_id= $_POST['login_id'];
         if(!empty($login_id)){
@@ -55,21 +51,53 @@ if(mysql_num_rows($query_run)==NULL){
          $your_total_mark = $query_row['your_total_mark'];
     }
     
-    //echoing the div that holds the summary
-    echo '<div style="padding-left:30%; padding-right:30%;">
-         <div class="list-group animated rollIn">
-          <a href="#" class="list-group-item disabled">
-             <h4>EXAM SUMMARY</h4>
-          </a>
-            <p  class="list-group-item">First Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp'.$first_name.'</p>
-            <p  class="list-group-item">Other Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp'.$other_name.'</p>
-            <p  class="list-group-item">Other Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp'.$email.'</p>
-            <p  class="list-group-item">Phone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp'.$phone.'</p>
-            <p  class="list-group-item">Max.Mark:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp'.$question_total_mark.'</p>
-            <p  class="list-group-item">Obtained Mark:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp'.$your_total_mark.'</p>
-             <a href="answered_questions.php" class="list-group-item"> View answerd questoins</a>
-            </div>
-     </div>';
+  
+     ?>
+
+                    <div style=";" class="table-responsive">
+                        <table class="table table-bordered table-hover" style="background-color:white;">
+                            <thead>
+                                <tr>
+                                    <th colspan="2" class="text-center">
+                                        <h4>EXAM SUMMARY</h4>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>First Name</td>
+                                    <td><?php echo $first_name?></td>
+                                </tr>
+                                <tr>
+                                    <td>Last Name</td>
+                                    <td><?php echo $other_name?></td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td><?php echo $email?></td>
+                                </tr>
+                                <tr>
+                                    <td>Phone</td>
+                                    <td><?php echo $phone?></td>
+                                </tr>
+                                <tr>
+                                    <td>Mark</td>
+                                    <td><?php echo $question_total_mark?></td>
+                                </tr>
+                                <tr>
+                                    <td>Obtained Mark</td>
+                                    <td><?php echo $your_total_mark?></td>
+                                </tr>
+
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <?php
+
 
              } 
             
@@ -80,17 +108,17 @@ if(mysql_num_rows($query_run)==NULL){
 ?>
 
 
-                    </div>
                 </div>
-
             </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Select candidate login id</div>
-                    <div class="panel-body">
-                        <form action="candidate_result.php" method="POST" class="form-inline">
-                            <div class="form-group">
-                                <?php
+
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">Select candidate login id</div>
+                <div class="panel-body">
+                    <form action="candidate_result.php" method="POST">
+                        <div class="form-group">
+                            <?php
                 $query="SELECT DISTINCT `login_id` FROM `candidate_answer_tbl`";
                     ($query_run = mysql_query($query));
                         echo '<select name="login_id" id="item1" value=""  class="form-control">';
@@ -102,30 +130,46 @@ if(mysql_num_rows($query_run)==NULL){
                              }
                 echo '</select>'; 
                 ?>
-                                <br><br><input type="submit" name="search_btn" value="Search" class="btn btn-default"
-                                    style="width: 120px;">
-                            </div>
+                        </div>
 
-                    </div>
+                        <div class="form-group">
+                            <input type="submit" name="search_btn" value="Search" class="btn btn-primary"
+                                style="width: 120px;">
+                        </div>
 
-                    </form>
                 </div>
+
+                </form>
             </div>
-            <!-- displaying the question answered base on login id-->
-            <table class="table table-hover table-bordered table-responsive">
+        </div>
 
-            <thead>
-					<tr>
-						<th>Question</th>
-						<th>Correct Answers</th>
-						<th>Your Answers</th>
-						<th>Mark</th>
-						<th>Your Mark</th>
-						<th>Time</th>
-					</tr>
-				</thead>
 
-                <?php
+
+
+
+        <!-- displaying the question answered base on login id-->
+
+        <div class="col-md-12">
+
+
+            <div class="table-responsive">
+                <h2 class="text-center">List of answered questions</h2>
+
+
+                <table class="table table-hover table-bordered" style="background-color:white;">
+
+                    <thead>
+                        <tr>
+                            <th>Question</th>
+                            <th>Correct Answers</th>
+                            <th>Your Answers</th>
+                            <th>Mark</th>
+                            <th>Your Mark</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+
+                    <?php
 
 if(isset($_POST['login_id'])){
 
@@ -149,17 +193,17 @@ if(isset($_POST['login_id'])){
 					?>
 
 
-                <tr>
-                    <td> <?php echo $question; ?> </td>
-                    <td> <?php echo $correct_answer; ?> </td>
-                    <td> <?php echo $your_answer; ?> </td>
-                    <td> <?php echo $mark; ?> </td>
-                    <td> <?php echo $your_mark; ?> </td>
-                    <td> <?php echo $time; ?> </td>
+                    <tr>
+                        <td> <?php echo $question; ?> </td>
+                        <td> <?php echo $correct_answer; ?> </td>
+                        <td> <?php echo $your_answer; ?> </td>
+                        <td> <?php echo $mark; ?> </td>
+                        <td> <?php echo $your_mark; ?> </td>
+                        <td> <?php echo $time; ?> </td>
 
-                </tr>
+                    </tr>
 
-                <?php
+                    <?php
 						}
 								}
 
@@ -169,12 +213,16 @@ if(isset($_POST['login_id'])){
 
 						?>
 
-            </table>
+                </table>
+
+
+            </div>
 
         </div>
-
-    </div><br>
     </div>
-    <?php
+
+</div><br>
+</div>
+<?php
     include('includes/footer.php');
   ?>

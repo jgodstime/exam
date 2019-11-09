@@ -9,7 +9,7 @@ if (isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])){
 
 
 function loggedin(){
-	if(isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])){
+	if(isset($_SESSION['admin_id']) && !empty($_SESSION['admin_id'])){
 		return true;
 	}else{
 		return false;
@@ -17,7 +17,7 @@ function loggedin(){
 }
 
 function getuserfield($field){
-	$query = "SELECT `$field` FROM `admin_tbl` WHERE `id`='".$_SESSION['user_id']."'";
+	$query = "SELECT `$field` FROM `admin_tbl` WHERE `id`='".$_SESSION['admin_id']."'";
 	if ($query_run = mysql_query($query)){
 		if ($query_result=mysql_result($query_run, 0, $field)){
 			return $query_result;

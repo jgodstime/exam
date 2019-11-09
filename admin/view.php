@@ -8,8 +8,29 @@ include('includes/header.php');
 
 	<div class="container">
 
+	
+
 		<div class="row">
-			<h2 class="text-center">List of Questions</h2>
+					<h2 class="text-center">List of Questions</h2>
+					<?php
+		if(isset($_POST['deleteBtn'])){
+			$questionId = $_POST['deleteId'];
+			$query="DELETE  FROM `questions_tbl` WHERE id='$questionId'";
+			if(mysql_query($query)){
+				echo '<div class="alert alert-success">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					Question successfully deleted .
+				</div>';
+			}else{
+				echo '<div class="alert alert-danger">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					Unable to delete question at this time.
+				</div>';
+			}
+		}
+
+	?>
+
 			<div class="table-responsive">
 				<table class="table table-hover table-bordered">
 					<thead>
@@ -22,7 +43,7 @@ include('includes/header.php');
 							<th>Option D</th>
 							<th>Corrent Answer</th>
 							<th>Mark</th>
-							<th>Action</th>
+							<!-- <th>Action</th> -->
 						</tr>
 					</thead>
 
@@ -57,7 +78,13 @@ include('includes/header.php');
 						<td> <?php echo $optiond; ?> </td>
 						<td> <?php echo $correct_answer; ?> </td>
 						<td> <?php echo $mark; ?> </td>
-						<td> <form action="" method="post"></form>  </td>
+						<td> 
+						<!-- <form action="<?php $_SERVER['REQUEST_URI'];?>" method="post">
+							<input type="hidden" name="deleteId" value="<?php echo $id; ?>">
+							<button name="deleteBtn" class="btn btn-danger" type="submit">Delete</button>
+						</form>   -->
+						
+						</td>
 					</tr>
 
 					<?php

@@ -9,12 +9,20 @@ function save_jss1question($table,$question,$optionA,$optionB,$optionC,$optionD,
 
 // displaying the number of question that exist in questions_tbl 
 function nummber_of_questions($table){
-    $query="SELECT * FROM `$table` ORDER BY `id` DESC LIMIT 1";
-    $query_run=mysql_query($query);
-        while($query_row=mysql_fetch_assoc($query_run)){
-             $last_id = $query_row['id'];  
-            return 'Number of Questions: '.$last_id;
-        }
+    // $query="SELECT * FROM `$table` ORDER BY `id` DESC LIMIT 1";
+    // $query_run=mysql_query($query);
+    //     while($query_row=mysql_fetch_assoc($query_run)){
+    //          $last_id = $query_row['id'];  
+    //         return 'Number of Questions: '.$last_id;
+    //     }
+
+    $query= "SELECT * FROM `$table`"; 
+    if ($query_run =mysql_query($query)){
+        $totalQuestion = mysql_num_rows($query_run);
+        return 'Number of Questions: '.$totalQuestion;
+
+
+    }
 }
 
 //function responsible for updating of questions

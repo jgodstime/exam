@@ -14,11 +14,19 @@ require_once'function.php';
 	<link href="css/ibc.css" rel="stylesheet">
 	<script src="jq/jquery-1.12.2.js"></script>
 	<script src="js/bootstrap.js"></script>
+	<style>
+            .jumbotron{
+				background-image: linear-gradient(to right top, #255eb3, #704b9f, #93357e, #a02657, #9c2a30);
+
+            }
+           
+        </style> 
 </head>
 
 <body>
 	<div class="jumbotron">
 		<h1>Online Examination</h1>
+		<p>Department of Computer Engineering. AkwaIbom State Polytechnic</p>
 
 
 	</div>
@@ -64,7 +72,7 @@ require_once'function.php';
 			
 		
 			<div class="table-responsive">
-				<table class="table table-hover table-bordered">
+				<table class="table table-hover table-bordered" style="background-color:white;">
 
 				<thead>
 					<tr>
