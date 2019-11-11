@@ -78,9 +78,9 @@ require_once'core.inc.php';
                     <div class="container">
 
 <div class="row">
-<div class="col-md-5 col-md-offset-3">
+<div class="col-md-5 col-md-offset-3 animated rollIn">
                     <div style="padding-top:50px;" class="table-responsive">
-                        <table class="table table-bordered table-hover">
+                        <table class="table table-bordered table-hover" style="background-color:white;">
                             <thead>
                                 <tr>
                                     <th colspan="2" class="text-center"><h4>EXAM SUMMARY</h4></th>

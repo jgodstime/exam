@@ -41,7 +41,7 @@ require_once'core.inc.php';
                     }else if ($query_num_rows==1) {
                 $user_id = mysql_result($query_run, 0, 'id'); // collecting the user id to store in session in a session data
                 $_SESSION['user_id']=$user_id; // setting session
-                header('Location: check_exam.php');
+                header('location: check_exam.php');
                     }
                 }
             }else{
@@ -55,6 +55,9 @@ require_once'core.inc.php';
 
     <div class="jumbotron my-jumbotron">
         <span>Online Examination</span>
+        <p style=" ">
+                Department of Computer Engineering. AkwaIbom State Polytechnic
+        </p>
         <p>
             <button type="button" style="border-radius:20px; padding-left:30px;padding-right:30px;"
                 class="btn btn-lg btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Sign

@@ -78,10 +78,10 @@ $query_run = mysql_query($query);
                     <div class="container">
 
 <div class="row">
-<div class="col-md-5 col-md-offset-3">
+<div class="col-md-5 col-md-offset-3 ">
 <h4 style="padding-top:50px;">You have already sat for the exam, here is your score</h4>
-                    <div class="table-responsive">
-                        <table class="table table-bordered table-hover">
+                    <div class="table-responsive animated rollIn">
+                        <table class="table table-bordered table-hover" style="background-color:white;">
                             <thead>
                                 <tr>
                                     <th colspan="2" class="text-center"><h4>EXAM SUMMARY</h4></th>

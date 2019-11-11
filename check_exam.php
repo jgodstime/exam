@@ -12,7 +12,9 @@ if (loggedin()){ // checking if the session is set and not empty
 $query = "SELECT * FROM `candidate_answer_tbl` WHERE `login_id`='$login_id'";
         $query_run = mysql_query($query);
              if(mysql_num_rows($query_run)==NULL){
-                  header('location:display_questions.php');
+               //    header('location:display_questions.php');
+               header('location:instruction.php');
+
             }else{
                  header('location:result2.php');
              }   

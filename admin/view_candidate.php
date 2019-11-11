@@ -7,30 +7,30 @@ require_once'function.php';
     include('includes/header.php');
   ?>
 
-	<div class="container">
-		<div class="row">
-			<h2 class="text-center">List of Exam Candidate</h2>
+<div class="container">
+    <div class="row">
+        <h2 class="text-center">List of Exam Candidate</h2>
 
-			<div class="table-responsive">
-				<table class="table table-hover table-bordered">
-
-
-					<thead>
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered">
 
 
-						<tr>
-							<th>ID</th>
-							<th>Login ID</th>
-							<th>First Name</th>
-							<th>Other Names</th>
-							<th>Email</th>
-							<th>Phone>
-							<th>Gender</th>
+                <thead>
 
-						</tr>
-					</thead>
 
-					<?php
+                    <tr>
+                        <th>ID</th>
+                        <th>Login ID</th>
+                        <th>First Name</th>
+                        <th>Other Names</th>
+                        <th>Email</th>
+                        <th>Phone>
+                        <th>Gender</th>
+
+                    </tr>
+                </thead>
+
+                <?php
 
 							$query="SELECT * FROM `candidate_tbl` ORDER BY `id` ASC";
 							if ($query_run = mysql_query($query)){
@@ -53,17 +53,17 @@ require_once'function.php';
 					?>
 
 
-					<tr>
-						<td> <?php echo $id; ?> </td>
-						<td> <?php echo $login_id; ?> </td>
-						<td> <?php echo $first_name; ?> </td>
-						<td> <?php echo $other_name; ?> </td>
-						<td> <?php echo $email; ?> </td>
-						<td> <?php echo $phone; ?> </td>
-						<td> <?php echo $gender; ?> </td>
-					</tr>
+                <tr>
+                    <td> <?php echo $id; ?> </td>
+                    <td> <?php echo $login_id; ?> </td>
+                    <td> <?php echo $first_name; ?> </td>
+                    <td> <?php echo $other_name; ?> </td>
+                    <td> <?php echo $email; ?> </td>
+                    <td> <?php echo $phone; ?> </td>
+                    <td> <?php echo $gender; ?> </td>
+                </tr>
 
-					<?php
+                <?php
 						}
 								}
 
@@ -71,12 +71,12 @@ require_once'function.php';
 
 						?>
 
-				</table>
+            </table>
 
-			</div>
-		</div>
+        </div>
+    </div>
 
-	</div>
-	<?php
+</div>
+<?php
     include('includes/footer.php');
   ?>

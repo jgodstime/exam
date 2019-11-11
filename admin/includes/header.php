@@ -12,17 +12,23 @@
           <script src="js/bootstrap.js"></script>
   <link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
           
+        <style>
+            .jumbotron{
+                background-image: radial-gradient(circle, #3c5beb, #9738b9, #b01683, #ae1454, #9c2a30);
+            }
+           
+        </style> 
     </head> 
  	<body>
         <div class="jumbotron">
               <h1>Online Examination</h1>
               
-            <h3>Admin Panel</h3>
+            <h3> Department of Computer Engineering. AkwaIbom State Polytechnic </h3>
             
             </div>
         <div class="navbar navbar-default navbar-static-top">	
             <div class="container">
-                <a href="index.php" class="navbar-brand">Online Examination</a>
+                <a href="#" class="navbar-brand" style="color:#9c2a30;">Admin Panel</a>
 
                 
                 <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
@@ -82,3 +88,4 @@
 	}
 ?>
     </div>
+
